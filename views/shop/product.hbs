@@ -1,0 +1,185 @@
+<div class="super_container">
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_container">
+			<div class="home_background" style="background-image:url(images/categories.jpg)"></div>
+			<div class="home_content_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="home_content">
+								<div class="home_title">
+										{{# each category }}
+											{{category_name}}
+										{{/each}}
+									<span>.</span></div>
+								<div class="home_text">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie
+										eros. Sed viverra velit venenatis fermentum luctus.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Product Details -->
+
+	<div class="product_details">
+		<div class="container">
+			<div class="row details_row">
+
+				<!-- Product Image -->
+				<div class="col-lg-6">
+					<div class="details_image">
+							{{# each images}}
+						<div class="details_image_large"><img src="{{this.path}}" alt="">
+						</div>
+						<div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
+							<div class="details_image_thumbnail" data-image="{{this.path}}">
+								<img src="{{this.path}}"
+								alt="{{this.description}}">
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+	{{# each product }}
+				<!-- Product Content -->
+				<div class="col-lg-6">
+					<div class="details_content">
+						<div class="details_name">{{title}}</div>
+						<div class="details_price">${{price_netto}}</div>
+
+						<!-- In Stock -->
+						<div class="in_stock_container">
+							<div class="availability">Availability:</div>
+							<span>
+							{{#if stock}}
+								In Stock
+							{{else}}
+								Out of stock
+							{{/if}}
+							</span>
+						</div>
+						<div class="details_text">
+							{{#if description}}
+								{{description}}
+							{{else}}
+    						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+								labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed
+								et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit.
+								Mauris consequat nisi ut mauris efficitur lacinia.</p>
+							{{/if}}
+						</div>
+
+						<!-- Product Quantity -->
+						<div class="product_quantity_container">
+							<div class="product_quantity clearfix">
+								<span>Qty</span>
+								<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+								<div class="quantity_buttons">
+									<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up"
+											aria-hidden="true"></i></div>
+									<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down"
+											aria-hidden="true"></i></div>
+								</div>
+							</div>
+							<div class="button cart_button"><a href="#">Add to cart</a></div>
+						</div>
+
+						<!-- Share -->
+						<div class="details_share">
+							<span>Share:</span>
+							<ul>
+								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row description_row">
+				<div class="col">
+					<div class="description_title_container">
+						<div class="description_title">Description</div>
+					</div>
+					<div class="description_text">
+						{{#if description}}
+							{{description}}
+						{{else}}
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+							labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed
+							et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit.
+							Mauris consequat nisi ut mauris efficitur lacinia.</p>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+
+	<!-- Products -->
+
+	<div class="products">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="products_title">Related Products</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="product_grid">
+					{{# each relatedProducts}}
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="{{this.path}}" alt="{{this.description}}"></div>
+							<div class="product_content">
+								<div class="product_title"><a href="product-p-{{this.product_id}}">{{this.title}}</a></div>
+								<div class="product_price">${{this.price_netto}}</div>
+							</div>
+						</div>
+					{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="newsletter_border"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<div class="newsletter_content text-center">
+						<div class="newsletter_title">Zapisz się do naszego newslettera</div>
+						<div class="newsletter_text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie
+								eros</p>
+						</div>
+						<div class="newsletter_form_container">
+							<form action="#" id="newsletter_form" class="newsletter_form">
+								<input type="email" class="newsletter_input" required="required">
+								<button class="newsletter_button trans_200"><span>Zapisz się</span></button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
